@@ -1,6 +1,6 @@
 package myPack;
 
-public interface Stack {
+public interface Stack {             //defining interface
 
 	void push(int l);
 
@@ -11,7 +11,7 @@ public interface Stack {
 
 package myPack;
 
-public class FixedStack implements Stack {
+public class FixedStack implements Stack {         //defining class which inherits stack
 
 	private int stck[];
 	private int tos;
@@ -23,7 +23,7 @@ public class FixedStack implements Stack {
 
 	public void push(int l) {
 		if (tos == stck.length-1) 
-			System.out.println("Stack overflow");
+			System.out.println("Stack overflow");   //dispalys stack overflow when number of integers exceeds the size
 		else
 			stck[++tos] = l;
 
@@ -31,7 +31,7 @@ public class FixedStack implements Stack {
 
 	public int pop() {
 		if (tos < 0) {
-			System.out.println("Stack underflow");
+			System.out.println("Stack underflow");     //prints stack underflow
 			return 0;
 		} else
 			return stck[tos--];
@@ -44,7 +44,7 @@ package myPack;
 
 public class VariableStack implements Stack {
 
-	private int stck[];
+	private int stck[];      
 	private int tos;
 
 	VariableStack(int size) {
@@ -54,7 +54,7 @@ public class VariableStack implements Stack {
 
 	public void push(int l) {
 		if (tos == stck.length - 1) {
-			int temp[] = new int[stck.length * 2];
+			int temp[] = new int[stck.length * 2];    //printing nos
 			for (int i = 0; i < stck.length; i++)
 				temp[i] = stck[i];
 			stck = temp;
@@ -80,13 +80,13 @@ package myPack;
 public class Run1 {
 
 	public static void main(String[] args) {
-		FixedStack mystack1 = new FixedStack(5);
+		FixedStack mystack1 = new FixedStack(5);     // creating object of FixedStack
 		FixedStack mystack2 = new FixedStack(8);
 		
 	for(int i=0;i<5;i++)	mystack1.push(i);
 	for(int i=0;i<8;i++)	mystack2.push(i);
 	
-	System.out.println("Stack in mystack1:");
+	System.out.println("Stack in mystack1:");            //printing FixedStack elements
 	for(int i=0;i<5;i++)
 		System.out.println(mystack1.pop());
 	System.out.println("Stack in mystack2:");
@@ -105,7 +105,7 @@ package myPack;
 public class Run2 {
 
 	public static void main(String[] args) {
-		VariableStack mystack1 = new VariableStack(5);
+		VariableStack mystack1 = new VariableStack(5);           //creating object of VariableStack
 		VariableStack mystack2 = new VariableStack(8);
 		
 	for(int i=0;i<12;i++)	mystack1.push(i);
